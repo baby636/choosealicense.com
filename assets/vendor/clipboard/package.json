@@ -26,7 +26,8 @@
     "browserify": "^11.2.0",
     "delegate": "^1.0.0",
     "select": "^1.0.0",
-    "tiny-emitter": "^1.0.0"
+    "tiny-emitter": "^1.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "karma": "^0.13.10",
@@ -48,6 +49,9 @@
     "build-watch": "watchify src/clipboard.js -s Clipboard -o dist/clipboard.js -v",
     "test": "npm run test-browser && npm run test-server",
     "test-browser": "karma start --single-run",
-    "test-server": "mocha test/module-systems.js"
-  }
+    "test-server": "mocha test/module-systems.js",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
+  },
+  "snyk": true
 }
